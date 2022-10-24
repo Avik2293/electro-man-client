@@ -1,6 +1,18 @@
+
+import logoNew from '../../Assets/logoNew.png';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
+
 
 const Header = () => {
+    const [ darkTheme, setDarkTheme ] = useState(false);
+
+    const handleDarkTheme = () => {
+        setDarkTheme(current => !current);
+    };
+
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -10,40 +22,28 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
-                            <li tabIndex={0}>
-                                <a className="justify-between">
-                                    Parent
-                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                                </a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            <li><Link>Courses</Link></li>
+                            <li><Link>FAQ</Link></li>
+                            <li><Link>Blog</Link></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link className="btn btn-ghost normal-case text-xl"><img className='h-5' src={logoNew} alt="" /> Electro Man</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><a>Item 1</a></li>
-                        <li tabIndex={0}>
-                            <a>
-                                Parent
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        <li><Link>Courses</Link></li>
+                        <li><Link>FAQ</Link></li>
+                        <li><Link>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    <button onClick={handleDarkTheme}>
+                        {
+                            darkTheme ? <h2 className='rounded mr-2 bg-gray-200'><FaToggleOff /> Light</h2> : <h2 className='rounded mr-2 bg-gray-200'><FaToggleOn /> Dark</h2>
+                        }
+                    </button>
+                    <Link className="btn">Log In</Link>
+                    <Link className="btn">Log Out</Link>
                 </div>
             </div>
         </div>
