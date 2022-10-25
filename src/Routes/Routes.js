@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/courses/:id',
+                path: '/courses',
                 element: <Courses></Courses>
             },
             {
@@ -34,5 +34,13 @@ export const routes = createBrowserRouter([
     {
         path: '/blog',
         element: <Blog></Blog>
-    }
+    },
+    // {
+    //     path: '/login',
+    //     element: 
+    // },
+    // {
+    //     path: '/register',
+    //     element: 
+    // }
 ]);
