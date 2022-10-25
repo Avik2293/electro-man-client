@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../Components/ErrorPage";
 import Main from "../Layout/Main";
-import Catagories from "../Pages/Catagories";
+import Blog from "../Pages/Blog";
+import Course from "../Pages/Course";
+import Courses from "../Pages/Courses";
+import Faq from "../Pages/Faq";
 import Home from "../Pages/Home";
 
 export const routes = createBrowserRouter([
@@ -15,8 +18,20 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/catagory/:id',
-                element: <Catagories></Catagories>
+                path: '/courses/:id',
+                element: <Courses></Courses>
+            },
+            {
+                path: '/course/:id',
+                element: <Course></Course>
+            },
+            {
+                path: '/faq',
+                element: <Faq></Faq>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }

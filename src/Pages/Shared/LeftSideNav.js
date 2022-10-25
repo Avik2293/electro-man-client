@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const LeftSideNav = () => {
-    const [catagories, setCatagories] = useState([]);
+    const [courses, setCourses] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:5000/catagories')
+        fetch('http://localhost:5000/courses')
         .then( res => res.json())
-        .then(data => setCatagories(data));
+        .then(data => setCourses(data));
     }, []);
 
     return (
         <div>
-            <h2>All Catagory : {catagories.length}</h2>
+            <h2>All Courses : {courses.length}</h2>
             {
-                catagories.map(catagory => <p key={catagory.id}>
-                    <Link to={`/catagory/${catagory.id}`}>{catagory.name}</Link>
+                courses.map(course => <p key={course.id}>
+                    <Link to={`/course/${course.id}`}>{course.name}</Link>
                 </p>)
             }
         </div>
