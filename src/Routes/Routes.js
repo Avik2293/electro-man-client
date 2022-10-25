@@ -24,15 +24,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <Course></Course>
-            },
-            {
-                path: '/faq',
-                element: <Faq></Faq>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
             }
         ]
+    },
+    {
+        path: '/faq',
+        element: <Faq></Faq>
+    },
+    {
+        path: '/blog',
+        element: <Blog></Blog>
     }
 ]);
