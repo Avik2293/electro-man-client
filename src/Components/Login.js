@@ -1,12 +1,18 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-daisyui';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
-const Login = () => {
 
+const Login = () => {
+    const [error, setError] = useState('');
+    
     const { providerLogin, signIn } = useContext(AuthContext);
+    
+    const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -23,8 +29,13 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            setError('');
+            navigate('/');
         })
-        .catch( e => console.error(e))
+        .catch( e => {
+            console.error(e);
+            setError(e.message);
+        })
     };
 
     const handleGoogleSignIn = () => {
@@ -40,6 +51,7 @@ const Login = () => {
         <div className='flex justify-center m-2'>
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
+                <p>{error}</p>
                 <form onSubmit={handleLogIn} novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
                         <label for="email" className="block text-gray-400"> Your Email</label>
@@ -48,8 +60,6 @@ const Login = () => {
                     <div className="space-y-1 text-sm">
                         <label for="password" className="block text-gray-400">Password</label>
                         <input type="password" name="password" id="password" placeholder="Type Your Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" required />
-                        <p>
-                        </p>
                         <div className="flex justify-end text-xs text-gray-400">
                             <Link rel="noopener noreferrer" to="#">Forgot Password?</Link>
                         </div>

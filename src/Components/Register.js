@@ -1,9 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState('');
 
     const {createUser} = useContext(AuthContext);
 
@@ -17,13 +19,18 @@ const Register = () => {
         const password = form.password.value;
 
         console.log(name, photoURL, email, password);
+
         createUser(email, password)
         .then( result => {
             const user = result.user;
             console.log(user);
+            setError('');
             form.reset();
         })
-        .catch( e => console.error(e))
+        .catch( e => {
+            console.error(e);
+            setError(e.message);
+        })
     };
 
     return (
@@ -46,8 +53,7 @@ const Register = () => {
                     <div className="space-y-1 text-sm">
                         <label for="password" className="block text-gray-400">Password</label>
                         <input type="password" name="password" id="password" placeholder="Type Your Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" required />
-                        <p>
-                        </p>
+                        <p>{error}</p>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Register</button>
                 </form>
