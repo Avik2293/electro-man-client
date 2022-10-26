@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-daisyui';
+import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
@@ -10,7 +11,7 @@ import { AuthContext } from '../Context/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('');
     
-    const { providerLogin, signIn } = useContext(AuthContext);
+    const { providerLogin, signIn, setLoading } = useContext(AuthContext);
     
     const navigate = useNavigate();
 
@@ -27,18 +28,26 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
         signIn(email, password)
         .then( result => {
             const user = result.user;
             console.log(user);
             form.reset();
             setError('');
-            navigate(from, {replace: true});
+            if(user.emailVerified){
+                navigate(from, {replace: true});
+            }
+            else{
+                toast.error('Your email is not verified. Plese verify your email address.');
+            }
         })
         .catch( e => {
             console.error(e);
             setError(e.message);
+        })
+        .finally(() => {
+            setLoading(false);
         })
     };
 

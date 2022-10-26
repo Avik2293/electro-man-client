@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Input } from 'react-daisyui';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -19,7 +19,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photoURL, email, password);
+        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
             .then(result => {
@@ -27,11 +27,30 @@ const Register = () => {
                 console.log(user);
                 setError('');
                 form.reset();
+                handleUpdateUserProfile(name, photoURL);
+                handleEmailVerification();
+                toast.success('Please, Verify your email address.');
             })
             .catch(e => {
                 console.error(e);
                 setError(e.message);
             })
+    };
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile ={
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error));
+    };
+
+    const handleEmailVerification = () => {
+        verifyEmail()
+        .then(() => {})
+        .catch(error => console.error(error));
     };
 
     return (
