@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import { Input } from 'react-daisyui';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -21,16 +22,16 @@ const Register = () => {
         console.log(name, photoURL, email, password);
 
         createUser(email, password)
-        .then( result => {
-            const user = result.user;
-            console.log(user);
-            setError('');
-            form.reset();
-        })
-        .catch( e => {
-            console.error(e);
-            setError(e.message);
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+            })
+            .catch(e => {
+                console.error(e);
+                setError(e.message);
+            })
     };
 
     return (
@@ -39,8 +40,8 @@ const Register = () => {
                 <h1 className="text-2xl font-bold text-center">Register</h1>
                 <form onSubmit={handleSubmit} novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
-                        <label for="email" className="block text-gray-400"> User Name</label>
-                        <input type="text" name="name" id="name" placeholder="Type Your UserName" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
+                        <label for="email" className="block text-gray-400">Full Name</label>
+                        <input type="text" name="name" id="name" placeholder="Type Your  Full Name" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label for="email" className="block text-gray-400"> Photo URL</label>

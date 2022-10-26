@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-daisyui';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 
 
@@ -13,6 +13,10 @@ const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext);
     
     const navigate = useNavigate();
+
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -30,7 +34,7 @@ const Login = () => {
             console.log(user);
             form.reset();
             setError('');
-            navigate('/');
+            navigate(from, {replace: true});
         })
         .catch( e => {
             console.error(e);
@@ -43,6 +47,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, {replace: true});
             })
             .catch(error => console.error(error))
     };
@@ -83,7 +88,7 @@ const Login = () => {
                         </svg>
                     </button>
                 </div>
-                <p className="text-xs text-center sm:px-6 text-gray-400"> Don't have an account?<Link rel="noopener noreferrer" to="/register" className="underline text-gray-100"> Register</Link></p>
+                <p className="text-xs text-center sm:px-6 text-gray-400"> Don't have an account?<Link onClick={() => navigate('/register')} className="underline text-gray-100 cursor-pointer"> Register</Link></p>
             </div>
         </div>
     );

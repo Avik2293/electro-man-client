@@ -1,6 +1,6 @@
 import React, { createRef } from 'react';
 import { FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 // import ReactToPdf from '../Components/ReactToPdf';
 // import Pdf from "react-to-pdf";
 
@@ -32,7 +32,6 @@ const Course = () => {
             </div> */}
             <div className='mt-2'>
                 <button className='btn btn-info mr-4'>Download PDF</button>
-                <button className='btn btn-secondary ml-4'>Get Premium Access</button>
             </div>
             <div className='border-4 border-teal-600 bg-sky-200 rounded-xl m-2 p-3'>
                 <div className='flex justify-center m-3'>
@@ -45,6 +44,9 @@ const Course = () => {
                 </div>
                 <h2 className='text-3xl font-bold'>{courseInfo.title}</h2>
                 <p className='text-2xl'>{courseInfo.details}</p>
+            </div>
+            <div className='mb-2 flex justify-end'>
+                <Link to='/checkout'><button className='btn btn-secondary mr-4'>Get Premium Access</button></Link>
             </div>
         </div>
     );

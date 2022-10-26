@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CheckOutPage from "../Components/CheckOutPage";
 import ErrorPage from "../Components/ErrorPage";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
@@ -8,6 +9,7 @@ import Course from "../Pages/Course";
 import Courses from "../Pages/Courses";
 import Faq from "../Pages/Faq";
 import Home from "../Pages/Home";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -43,6 +45,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/checkout',
+                element: <PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>
             }
         ]
     }
