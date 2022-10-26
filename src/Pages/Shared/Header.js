@@ -3,14 +3,24 @@ import logoNew from '../../Assets/logoNew.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
+import { FaToggleOn, FaToggleOff, FaUser } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Header = () => {
-    const [ darkTheme, setDarkTheme ] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(false);
+
+    const { user, logOut } = useContext(AuthContext);
 
     const handleDarkTheme = () => {
         setDarkTheme(current => !current);
+    };
+
+    const handleLogOut = () => {
+        logOut()
+        .then( () => {})
+        .catch( error => console.error(error))
     };
 
     return (
@@ -42,8 +52,26 @@ const Header = () => {
                             darkTheme ? <h2 className='rounded mr-2 bg-gray-200'><FaToggleOff /> Light</h2> : <h2 className='rounded mr-2 bg-gray-200'><FaToggleOn /> Dark</h2>
                         }
                     </button>
-                    <Link className="btn">Log In</Link>
-                    <Link className="btn">Log Out</Link>
+                    <div>
+                    {user?.photoURL ?
+                        <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                            <div className="w-12 mask mask-hexagon">
+                                <button><img src={user.photoURL} alt="" />
+                                </button>
+                            </div>
+                        </div> :
+                        <FaUser></FaUser>
+                    }
+                    </div>
+                    <div>
+                        {
+                        user?.uid ? <Link onClick={handleLogOut} className="btn">Log Out</Link> :
+                        <div>
+                            <Link className="btn" to='/login'>Log In</Link>
+                            <Link className="btn" to='/register'>Register</Link>
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

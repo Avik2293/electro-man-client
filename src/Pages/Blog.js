@@ -1,11 +1,8 @@
 import React from 'react';
-import Footer from './Shared/Footer';
-import Header from './Shared/Header';
 
 const Blog = () => {
     return (
         <div>
-            <Header></Header>
             <h2 className='text-2xl font-bold'>Welcome to My Blog. </h2>
             <div className="flex flex-col w-full p-2">
                 <div className="grid h-auto card bg-base-300 rounded-box place-items-center text-left p-3">
@@ -45,7 +42,6 @@ const Blog = () => {
                     </p>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

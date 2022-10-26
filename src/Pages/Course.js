@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+// import ReactToPdf from '../Components/ReactToPdf';
+// import Pdf from "react-to-pdf";
 
 const Course = () => {
 
     const courseInfo = useLoaderData();
-    console.log(courseInfo);
+    // console.log(courseInfo);
+
+    // const ref = React.createRef();
+
     return (
         <div>
+            {/* <div>
+                <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+                    {({ toPdf }) => (
+                        <button onClick={toPdf}>Generate pdf</button>
+                    )}
+                </ReactToPdf>
+                <div style={{ width: 50, height: 50, background: 'blue' }} ref={ref} />
+
+
+                <Pdf targetRef={ref} filename="code-example.pdf">
+                    {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
+                <div ref={ref}>
+                    <h1>Hello CodeSandbox</h1>
+                    <h2>Start editing to see some magic happen!</h2>
+                </div>
+            </div> */}
             <div className='mt-2'>
                 <button className='btn btn-info mr-4'>Download PDF</button>
                 <button className='btn btn-secondary ml-4'>Get Premium Access</button>

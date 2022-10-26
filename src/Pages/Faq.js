@@ -1,11 +1,8 @@
 import React from 'react';
-import Footer from './Shared/Footer';
-import Header from './Shared/Header';
 
 const Faq = () => {
     return (
         <div>
-            <Header></Header>
             <div>
                 <h2 className='text-3xl font-bold'>Some Frequently Asked Question in here....</h2>
                 <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box lg:mx-48 my-2">
@@ -59,7 +56,6 @@ const Faq = () => {
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };
