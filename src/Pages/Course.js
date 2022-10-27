@@ -38,7 +38,7 @@ const Course = () => {
                 </div>
             </div>
             <div className='mb-2 flex justify-end'>
-                <Link to='/checkout'><button className='btn btn-secondary mr-4'>Get Premium Access</button></Link>
+                <Link to={`/checkout/${courseInfo.id}`}><button className='btn btn-secondary mr-4'>Get Premium Access</button></Link>
             </div>
         </div>
     );

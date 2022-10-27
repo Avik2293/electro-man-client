@@ -10,8 +10,10 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
+
+    const [userEmail, setUserEmail] = useState('');
     
-    const { setUser, providerLogin, signIn, setLoading } = useContext(AuthContext);
+    const { setUser, providerLogin, signIn, setLoading, passwordResetEmail } = useContext(AuthContext);
     
     const navigate = useNavigate();
 
@@ -41,7 +43,7 @@ const Login = () => {
                 navigate(from, {replace: true});
             }
             else{
-                toast.error('Your email is not verified. Plese verify your email address.');
+                toast.error('Your email is not verified. Please verify your email address.');
             }
         })
         .catch( e => {
@@ -50,6 +52,26 @@ const Login = () => {
         })
         .finally(() => {
             setLoading(false);
+        })
+    };
+
+    const handleEmailBlur = event => {
+        const email = event.target.value;
+        setUserEmail(email);
+        console.log(email);
+    }
+
+    const handleForgetPassword = () => {
+        if(!userEmail){
+            toast.error('Please enter your email address');
+            return;
+        }
+        passwordResetEmail(userEmail)
+        .then(() => {
+            toast.success('Password reset email has been sent in your email address');
+        })
+        .catch(error => {
+            console.error(error);
         })
     };
 
@@ -80,16 +102,16 @@ const Login = () => {
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
                 <p>{error}</p>
-                <form onSubmit={handleLogIn} novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleLogIn} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
-                        <label for="email" className="block text-gray-400"> Your Email</label>
-                        <input type="email" name="email" id="email" placeholder="Type Your Email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" required />
+                        <label htmlFor="email" className="block text-gray-400"> Your Email</label>
+                        <input onBlur={handleEmailBlur} type="email" name="email" id="email" placeholder="Type Your Email" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" required />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label for="password" className="block text-gray-400">Password</label>
+                        <label htmlFor="password" className="block text-gray-400">Password</label>
                         <input type="password" name="password" id="password" placeholder="Type Your Password" className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" required />
                         <div className="flex justify-end text-xs text-gray-400">
-                            <Link rel="noopener noreferrer" to="#">Forgot Password?</Link>
+                            <Link onClick={handleForgetPassword} to="#">Forgot Password?</Link>
                         </div>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Sign in</button>
