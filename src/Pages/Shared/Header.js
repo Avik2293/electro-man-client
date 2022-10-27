@@ -63,7 +63,7 @@ const Header = () => {
                         <FaUser></FaUser>
                     }
                     </div>
-                    <div>
+                    <div className='w-12 md:w-24'>
                         {
                         user?.uid ? <Link onClick={handleLogOut} className="btn">Log Out</Link> :
                         <div>
