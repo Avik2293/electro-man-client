@@ -7,7 +7,7 @@ const Courses = () => {
     const [courseData, setCourseData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/courseData')
+        fetch('https://electro-man-server.vercel.app/courseData')
             .then(res => res.json())
             .then(data => setCourseData(data));
     }, []);

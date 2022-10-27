@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <Course></Course>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({params}) => fetch(`https://electro-man-server.vercel.app/course/${params.id}`)
             },
             {
                 path: '/faq',
@@ -49,7 +49,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({params}) => fetch(`https://electro-man-server.vercel.app/course/${params.id}`)
             }
         ]
     }

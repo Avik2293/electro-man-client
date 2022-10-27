@@ -12,9 +12,9 @@ const Login = () => {
     const [error, setError] = useState('');
 
     const [userEmail, setUserEmail] = useState('');
-    
+
     const { setUser, providerLogin, signIn, setLoading, passwordResetEmail } = useContext(AuthContext);
-    
+
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -34,25 +34,25 @@ const Login = () => {
 
         // console.log(email, password);
         signIn(email, password)
-        .then( result => {
-            const user = result.user;
-            console.log(user);
-            form.reset();
-            setError('');
-            if(user.emailVerified){
-                navigate(from, {replace: true});
-            }
-            else{
-                toast.error('Your email is not verified. Please verify your email address.');
-            }
-        })
-        .catch( e => {
-            console.error(e);
-            setError(e.message);
-        })
-        .finally(() => {
-            setLoading(false);
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('');
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your email is not verified. Please verify your email address.');
+                }
+            })
+            .catch(e => {
+                console.error(e);
+                setError(e.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     };
 
     const handleEmailBlur = event => {
@@ -62,17 +62,17 @@ const Login = () => {
     }
 
     const handleForgetPassword = () => {
-        if(!userEmail){
+        if (!userEmail) {
             toast.error('Please enter your email address');
             return;
         }
         passwordResetEmail(userEmail)
-        .then(() => {
-            toast.success('Password reset email has been sent in your email address');
-        })
-        .catch(error => {
-            console.error(error);
-        })
+            .then(() => {
+                toast.success('Password reset email has been sent in your email address');
+            })
+            .catch(error => {
+                console.error(error);
+            })
     };
 
     const handleGoogleSignIn = () => {
@@ -81,7 +81,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     };
@@ -92,7 +92,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setUser(user);
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     };
