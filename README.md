@@ -2,12 +2,7 @@
 
 # Live Site Link: [https://electro-man-9a7e4.web.app/login](https://electro-man-9a7e4.web.app/login).
 
-# Project Github Link: [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Avik2293](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Avik2293).
-
-# Server Github Link: [https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Avik2293](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Avik2293).
-
-
-## This Project has been Created for Programming Hero Web Development Course, Assignment No. 10.
+# Server Github Link: [https://github.com/Avik2293/electro-man-server](https://github.com/Avik2293/electro-man-server).
 
 ## Some details about The Project:
 
