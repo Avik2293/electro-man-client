@@ -1,6 +1,6 @@
 # Project Name: Electro Man
 
-# Live Site Link: [https://electro-man-9a7e4.web.app/login](https://electro-man-9a7e4.web.app/login).
+# Live Site Link: [https://electro-man-9a7e4.web.app/](https://electro-man-9a7e4.web.app/).
 
 # Server Github Link: [https://github.com/Avik2293/electro-man-server](https://github.com/Avik2293/electro-man-server).
 
