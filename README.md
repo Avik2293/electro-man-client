@@ -39,4 +39,5 @@
     * Vercel
     * Framer Motion
     * AOS
+    * React CountUp
 

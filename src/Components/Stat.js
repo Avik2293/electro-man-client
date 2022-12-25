@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import CountUp from 'react-countup';
 
 const Stat = () => {
 
@@ -16,7 +17,7 @@ const Stat = () => {
                             </svg>
                         </div>
                         <div className="flex items-center justify-evenly flex-1 p-3">
-                            <p className="text-2xl font-semibold">20+</p>
+                            <p className="text-2xl font-semibold"><CountUp end={20} duration={10}/>+</p>
                             <p>Courses</p>
                         </div>
                     </div>
@@ -30,7 +31,7 @@ const Stat = () => {
                             </svg>
                         </div>
                         <div className="flex items-center justify-evenly flex-1 p-3">
-                            <p className="text-2xl font-semibold">750+</p>
+                            <p className="text-2xl font-semibold"><CountUp end={750} duration={15}/>+</p>
                             <p>Students</p>
                         </div>
                     </div>
@@ -44,7 +45,7 @@ const Stat = () => {
                             </svg>
                         </div>
                         <div className="flex items-center justify-evenly flex-1 p-3">
-                            <p className="text-2xl font-semibold">4</p>
+                            <p className="text-2xl font-semibold"><CountUp end={4} duration={3}/></p>
                             <p>Awards</p>
                         </div>
                     </div>
@@ -58,7 +59,7 @@ const Stat = () => {
                             </svg>
                         </div>
                         <div className="flex items-center justify-evenly flex-1 p-3">
-                            <p className="text-2xl font-semibold">24/7 h</p>
+                            <p className="text-2xl font-semibold">24/7 hr.</p>
                             <p>Support</p>
                         </div>
                     </div>
