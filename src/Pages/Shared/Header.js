@@ -49,7 +49,7 @@ const Header = () => {
                 <div className="navbar-end">
                     <button onClick={handleDarkTheme}>
                         {
-                            darkTheme ? <h2 className='rounded mr-2 bg-gray-200'><FaToggleOff /> Light</h2> : <h2 className='rounded mr-2 bg-gray-200'><FaToggleOn /> Dark</h2>
+                            darkTheme ? <h2 className='rounded mr-2 text-center'><FaToggleOff className='ml-2'/>Light</h2> : <h2 className='rounded mr-2'><FaToggleOn className='ml-2'/>Dark</h2>
                         }
                     </button>
                     <div>
@@ -65,9 +65,9 @@ const Header = () => {
                     </div>
                     <div className='w-12 md:w-24'>
                         {
-                        user?.uid ? <Link onClick={handleLogOut} className="btn">Log Out</Link> :
+                        user?.uid ? <Link onClick={handleLogOut} className="btn p-0 lg:p-3">Log Out</Link> :
                         <div>
-                            <Link className="btn" to='/login'>Log In</Link>
+                            <Link className="btn p-0 lg:p-3" to='/login'>Log In</Link>
                             {/* <Link className="btn" to='/register'>Register</Link> */}
                         </div>
                         }

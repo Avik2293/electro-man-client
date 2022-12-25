@@ -37,5 +37,6 @@
     * Daisy UI
     * Mamba UI
     * Vercel
-    * 
+    * Framer Motion
+    * AOS
 

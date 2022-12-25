@@ -1,12 +1,12 @@
 import React from 'react';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 const Stat = () => {
 
     return (
         <section className="p-4 my-2 md:p-8 dark:bg-gray-800 dark:text-gray-100">
             <div className="container grid grid-cols-1 gap-8 m-4 mx-auto md:m-0 md:grid-cols-2 xl:grid-cols-4">
-                <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} >
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                     <div className="flex overflow-hidden rounded-lg dark:bg-gray-900 dark:text-gray-100 bg-gray-400">
                         <div className="flex items-center justify-center px-4 dark:bg-violet-400 dark:text-gray-800">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-6 h-6">
@@ -21,7 +21,7 @@ const Stat = () => {
                         </div>
                     </div>
                 </motion.button >
-                <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} >
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                     <div className="flex overflow-hidden rounded-lg dark:bg-gray-900 dark:text-gray-100 bg-gray-400">
                         <div className="flex items-center justify-center px-4 dark:bg-violet-400 dark:text-gray-800">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-6 h-6">
@@ -35,7 +35,7 @@ const Stat = () => {
                         </div>
                     </div>
                 </motion.button >
-                <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} >
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                     <div className="flex overflow-hidden rounded-lg dark:bg-gray-900 dark:text-gray-100 bg-gray-400">
                         <div className="flex items-center justify-center px-4 dark:bg-violet-400 dark:text-gray-800">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-6 h-6">
@@ -49,7 +49,7 @@ const Stat = () => {
                         </div>
                     </div>
                 </motion.button >
-                <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} >
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                     <div className="flex overflow-hidden rounded-lg dark:bg-gray-900 dark:text-gray-100 bg-gray-400">
                         <div className="flex items-center justify-center px-4 dark:bg-violet-400 dark:text-gray-800">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-6 h-6">
